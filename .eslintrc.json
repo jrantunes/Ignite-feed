@@ -34,5 +34,8 @@
     "@typescript-eslint/explicit-module-boundary-types": "off", // evitar que o tipo de retorno/argumentos de uma função exportada sejam obrigatórios
     "react/react-in-jsx-scope": "off", // tirar a necessidade de importar o React em cada arquivo com jsx (caso o react já esteja sendo importado globalmente)
     "react/prop-types": "off" // desligar regra de propTypes (para que não ocorra conflito com o typescript)
-  }
+  },
+  "ignorePatterns": [
+    "**/*.html"
+  ]
 }
