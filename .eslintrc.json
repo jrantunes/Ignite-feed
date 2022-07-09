@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"  // detecta a versão que está sendo usada do react
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off", // evitar que o tipo de retorno/argumentos de uma função exportada sejam obrigatórios
+    "react/react-in-jsx-scope": "off", // tirar a necessidade de importar o React em cada arquivo com jsx (caso o react já esteja sendo importado globalmente)
+    "react/prop-types": "off" // desligar regra de propTypes (para que não ocorra conflito com o typescript)
+  }
+}
