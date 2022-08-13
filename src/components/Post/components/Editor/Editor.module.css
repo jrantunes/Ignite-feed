@@ -1,0 +1,56 @@
+.editor {
+  position: relative;
+  width: 100%;
+  background-color: var(--gray-900);
+  border: 0;
+  /* resize: none; */
+  height: 6rem;
+  /* padding: 1rem; */
+  border-radius: 8px;
+  overflow: hidden;
+  color: var(--gray-100);
+  list-style: 1.4;
+  margin-top: 1rem;
+}
+
+.editor:focus-within {
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--green-500);
+}
+
+.preview {
+  width: 100%;
+  background-color: var(--gray-900);
+  border: 0;
+  /* resize: none; */
+  height: 18rem;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow: auto;
+  color: var(--gray-100);
+  list-style: 1.4;
+  margin-top: 1rem;
+}
+
+.preview a {
+  font-weight: bold;
+  color: var(--green-500);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.preview a:hover {
+  color: var(--green-300);
+}
+
+.preview p span[class="tag-elmnt"] {
+  font-weight: bold;
+  color: var(--green-500);
+  /* text-decoration: none; */
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.preview p span[class="tag-elmnt"]:hover {
+  color: var(--green-300);
+}

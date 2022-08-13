@@ -69,22 +69,15 @@
   border-top: 1px solid var(--gray-600);
 }
 
-.commentForm > strong {
-  line-height: 1.6;
-  color: var(--gray-100);
+.commentForm > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.commentForm textarea {
-  width: 100%;
-  background-color: var(--gray-900);
-  border: 0;
-  resize: none;
-  height: 6rem;
-  padding: 1rem;
-  border-radius: 8px;
+.commentForm > header > strong {
+  line-height: 1.6;
   color: var(--gray-100);
-  list-style: 1.4;
-  margin-top: 1rem;
 }
 
 .commentForm footer {
@@ -116,4 +109,20 @@
 
 .comments {
   margin-top: 2rem;
+}
+
+.previewButton {
+  cursor: pointer;
+  padding: 0.25rem 1.25rem;
+  border-radius: 8px;
+  border: 0;
+  background: var(--green-500);
+  color: var(--white);
+  font-weight: bold;
+
+  transition: background-color 0.1s;
+}
+
+.previewButton:hover {
+  background: var(--green-300);
 }
