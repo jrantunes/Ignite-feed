@@ -1,7 +1,9 @@
-import { FormEvent, useCallback, useState } from "react";
+import MDEditor from "@uiw/react-md-editor";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import { Avatar } from "../Avatar";
 import { Comment } from "../Comment";
 import { Editor } from "./components/Editor";
+import { Preview } from "./components/Preview";
 
 import styles from "./Post.module.css";
 
@@ -21,14 +23,9 @@ export function Post({ author, content, publishedAt }: PostProps) {
   const [comment, setComment] = useState<string | undefined>("");
   const [showPreview, setShowPreview] = useState(false);
 
-  const handleComment = useCallback(
-    (e: FormEvent) => {
-      e.preventDefault();
-
-      console.log("comment", comment);
-    },
-    [comment]
-  );
+  const handleComment = useCallback((e: FormEvent) => {
+    e.preventDefault();
+  }, []);
 
   return (
     <article className={styles.post}>
@@ -47,20 +44,7 @@ export function Post({ author, content, publishedAt }: PostProps) {
       </header>
 
       <div className={styles.content}>
-        <p>Fala galeraa 👋</p>
-        <p>
-          Acabei de subir mais um projeto no meu portifa. É um projeto que fiz
-          no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀
-        </p>
-        <p>
-          <a href="#">jane.design/doctorcare</a>
-        </p>
-        <p>
-          {/* eslint-disable-next-line prettier/prettier */}
-          <a href="#">#novoprojeto</a>{" "}
-          <a href="#">#nlw</a>{" "}
-          <a href="#">#rocketseat</a>
-        </p>
+        <Preview isPreviewEnabled value={content} />
       </div>
 
       <form className={styles.commentForm} onSubmit={handleComment}>

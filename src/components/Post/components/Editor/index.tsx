@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import MDEditor from "@uiw/react-md-editor";
-import { useEffect, useRef } from "react";
 import rehypeSanitize from "rehype-sanitize";
+import { Preview } from "../Preview";
 
 import styles from "./Editor.module.css";
 
@@ -12,32 +12,6 @@ type EditorProps = {
 };
 
 export function Editor({ value, setValue, preview = false }: EditorProps) {
-  const previewRef = useRef<any>();
-
-  useEffect(() => {
-    if (preview) {
-      const children: HTMLCollection = previewRef.current.mdp.current.children;
-
-      if (children) {
-        [...children].forEach((child: any) => {
-          let innerContent = ``;
-
-          child.innerHTML.split(" ").forEach((element: any) => {
-            if (element.startsWith("#")) {
-              innerContent += ` <span class="tag-elmnt">${element}</span>`;
-
-              return;
-            }
-
-            innerContent += " " + element;
-          });
-
-          child.innerHTML = innerContent;
-        });
-      }
-    }
-  }, [preview]);
-
   return (
     <>
       {!preview ? (
@@ -54,11 +28,7 @@ export function Editor({ value, setValue, preview = false }: EditorProps) {
           onChange={setValue}
         />
       ) : (
-        <MDEditor.Markdown
-          ref={previewRef}
-          source={value}
-          className={styles.preview}
-        />
+        <Preview commentPreview isPreviewEnabled={preview} value={value} />
       )}
     </>
   );
